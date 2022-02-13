@@ -21,7 +21,6 @@ export default class AppProvider extends React.Component {
 
 
     takeTurn(action) {
-        console.log('==> action', action)
         if (this.state.winner || this.state.gameBoard[action.row][action.square] !== NONE) {
             return
         }

@@ -4,7 +4,7 @@ import {withAppContext} from "./AppProvider";
 
 function GameBoard(props) {
     const {appContext} = props
-    const {gameBoard, onPlay} = appContext
+    const {gameBoard} = appContext
     return (
         <div className="ttt-board">
             {gameBoard.map((row, row_index) => (
@@ -15,7 +15,6 @@ function GameBoard(props) {
                             row={row_index}
                             square={square_index}
                             player={gameBoard[row_index][square_index]}
-                            onPlay={onPlay}
                         />
                     ))}
                 </div>

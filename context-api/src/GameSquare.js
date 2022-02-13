@@ -5,14 +5,11 @@ import {withAppContext} from "./AppProvider";
 function GameSquare(props) {
     const {appContext, row, square} = props
     const {onTakeTurn} = appContext
-    const handlePlay = () => {
-        onTakeTurn({row, square})
-    }
 
     return (
         <div
             className="ttt-square"
-            onClick={() => handlePlay()}>
+            onClick={() => onTakeTurn({row, square})}>
             <PlayerImage player={props.player}/>
         </div>
     );
