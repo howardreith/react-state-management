@@ -4,16 +4,9 @@ import GameInfo from './GameInfo';
 import ResetGame from './ResetGame';
 import GameScore from './GameScore';
 import './index.css';
-import {withAppContext} from "./AppProvider";
 
 
-function PirateTicTacToe(props) {
-    const {appContext} = props
-
-    const handlePlay = (row, square) => {
-        appContext.onTakeTurn({row, square})
-    }
-
+function PirateTicTacToe() {
     return (
         <div className="container-fluid">
             <div className="row">
@@ -27,16 +20,16 @@ function PirateTicTacToe(props) {
             </div>
             <div className="row align-items-center">
                 <div className="col-md-5 col-sm-10 offset-md-1 offset-sm-1">
-                    <GameInfo player={appContext.player} winner={appContext.winner}/>
-                    <GameBoard gameBoard={appContext.gameBoard} onPlay={handlePlay}/>
+                    <GameInfo/>
+                    <GameBoard/>
                 </div>
                 <div className="col-md-5 col-sm-10 offset-md-0 offset-sm-1 align-items-center text-center">
                     <GameScore/>
-                    <ResetGame onResetGame={appContext.onResetGame} winner={appContext.winner}/>
+                    <ResetGame/>
                 </div>
             </div>
         </div>
     );
 }
 
-export default withAppContext(PirateTicTacToe);
+export default PirateTicTacToe;

@@ -1,12 +1,21 @@
 import React from 'react';
 import PlayerImage from './PlayerImage';
+import {withAppContext} from "./AppProvider";
 
-export default function GameSquare(props) {
-  return (
-    <div
-      className="ttt-square"
-      onClick={() => props.onPlay(props.row, props.square)}>
-      <PlayerImage player={props.player} />
-    </div>
-  );
+function GameSquare(props) {
+    const {appContext, row, square} = props
+    const {onTakeTurn} = appContext
+    const handlePlay = () => {
+        onTakeTurn({row, square})
+    }
+
+    return (
+        <div
+            className="ttt-square"
+            onClick={() => handlePlay()}>
+            <PlayerImage player={props.player}/>
+        </div>
+    );
 }
+
+export default withAppContext(GameSquare)

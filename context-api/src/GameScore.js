@@ -3,13 +3,14 @@ import PlayerImage from './PlayerImage';
 import {withAppContext} from "./AppProvider";
 
 function GameScore(props) {
-    console.log('===> gamescore props', props)
+    const {appContext} = props
+    const {xWins, oWins} = appContext
     return (
         <div className="ttt-running-score">
             <h3>Running Score:</h3>
             <span className="p-3">
-        <PlayerImage player="X"/> {props.xWins}
-                <PlayerImage player="O"/> {props.oWins}
+        <PlayerImage player="X"/> {xWins}
+                <PlayerImage player="O"/> {oWins}
       </span>
         </div>
     );
